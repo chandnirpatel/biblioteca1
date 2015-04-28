@@ -12,11 +12,13 @@ public class BibliotecaTest {
     private Biblioteca biblioteca;
     private String WELCOMEMESSAGE;
     private PrintStream printStream;
+    private String book;
 
     @Before
     public void setUp(){
+        book = "Book";
         printStream = mock(PrintStream.class);
-        biblioteca = new Biblioteca(printStream);
+        biblioteca = new Biblioteca(printStream, book);
         WELCOMEMESSAGE = "Welcome!";
     }
 
@@ -29,11 +31,17 @@ public class BibliotecaTest {
 
     @Test
     public void shouldDisplayWelcomeMessageWhenAppStarts() {
-        Biblioteca spyBiblioteca = spy(new Biblioteca(printStream));
+        Biblioteca spyBiblioteca = spy(new Biblioteca(printStream, book));
 
         spyBiblioteca.startApp();
 
         verify(spyBiblioteca).displayWelcomeMessage();
+    }
+
+    @Test
+    public void shouldDisplayABook(){
+        biblioteca.displayBooks();
+        verify(printStream).println(book);
     }
 
 }

@@ -6,10 +6,14 @@ public class Biblioteca {
 
     private String welcomeMessage = "Welcome!";
     private PrintStream printStream;
+    private String books;
 
-    public Biblioteca(PrintStream printStream) {
+    public Biblioteca(PrintStream printStream, String books) {
         this.printStream = printStream;
+        this.books = books;
+
     }
+
 
     public void displayWelcomeMessage() {
         printStream.println(welcomeMessage);
@@ -17,5 +21,9 @@ public class Biblioteca {
 
     public void startApp() {
         displayWelcomeMessage();
+    }
+
+    public void displayBooks() {
+        printStream.println(books);
     }
 }
