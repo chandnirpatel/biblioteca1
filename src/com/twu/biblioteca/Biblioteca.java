@@ -5,12 +5,17 @@ import java.io.PrintStream;
 public class Biblioteca {
 
     private String welcomeMessage = "Welcome!";
+    private PrintStream printStream;
 
-    public String getWelcomeMessage() {
-        return welcomeMessage;
+    public Biblioteca(PrintStream printStream) {
+        this.printStream = printStream;
     }
 
-    public void displayWelcomeMessage(PrintStream printStream) {
-        printStream.println(getWelcomeMessage());
+    public void displayWelcomeMessage() {
+        printStream.println(welcomeMessage);
+    }
+
+    public void startApp() {
+        displayWelcomeMessage();
     }
 }
