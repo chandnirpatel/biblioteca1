@@ -1,19 +1,21 @@
 package com.twu.biblioteca;
 
 import java.io.PrintStream;
+import java.util.ArrayList;
 
-public class Biblioteca {
+public class Application {
 
     private String welcomeMessage = "Welcome!";
     private PrintStream printStream;
-    private String books;
+    private ArrayList<String> books;
+    private Library library;
 
-    public Biblioteca(PrintStream printStream, String books) {
+    public Application(PrintStream printStream, ArrayList<String> books, Library library) {
         this.printStream = printStream;
         this.books = books;
+        this.library = library;
 
     }
-
 
     private void displayWelcomeMessage() {
         printStream.println(welcomeMessage);
@@ -21,6 +23,7 @@ public class Biblioteca {
 
     public void startApp() {
         displayWelcomeMessage();
+        library.listBooks();
     }
 
     public void displayBooks() {
