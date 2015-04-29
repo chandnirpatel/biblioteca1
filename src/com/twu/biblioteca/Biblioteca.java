@@ -15,7 +15,7 @@ public class Biblioteca {
     }
 
 
-    public void displayWelcomeMessage() {
+    private void displayWelcomeMessage() {
         printStream.println(welcomeMessage);
     }
 

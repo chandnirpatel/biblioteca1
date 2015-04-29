@@ -19,23 +19,14 @@ public class BibliotecaTest {
         book = "Book";
         printStream = mock(PrintStream.class);
         biblioteca = new Biblioteca(printStream, book);
-        WELCOMEMESSAGE = "Welcome!";
-    }
-
-    @Test
-    public void shouldDisplayWelcomeMessage() {
-        biblioteca.displayWelcomeMessage();
-
-        verify(printStream).println(WELCOMEMESSAGE);
+        WELCOMEMESSAGE = "Welcome";
     }
 
     @Test
     public void shouldDisplayWelcomeMessageWhenAppStarts() {
-        Biblioteca spyBiblioteca = spy(new Biblioteca(printStream, book));
+        biblioteca.startApp();
 
-        spyBiblioteca.startApp();
-
-        verify(spyBiblioteca).displayWelcomeMessage();
+        verify(printStream).println(contains(WELCOMEMESSAGE));
     }
 
     @Test
